@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('publisher', function (Blueprint $table) {
             $table->id();
             $table->string('publisher_name');
-            $table->year('publisher_year');
             $table->timestamps();
         });
     }
