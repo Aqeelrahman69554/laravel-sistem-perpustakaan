@@ -16,13 +16,17 @@ class PublisherSeeder extends Seeder
         $publishers = [
             [
                 'publisher_name' => 'Gramedia Pustaka',
+                'publisher_email' => 'gramediapustaka@gmail.com',
+                'publisher_telp' => '08382721345',
+                'publisher_address' => 'jl. Mawar, Jakarta Barat',
             ],
             [
-                'publisher_name' => 'Pustaka Harta',
+                'publisher_name' => 'Kanta Pustaka',
+                'publisher_email' => 'kantapustaka@gmail.com',
+                'publisher_telp' => '0842492934',
+                'publisher_address' => 'jl.sungai ciliwung, Jakarta Barat',
             ],
-            [
-                'publisher_name' => 'Persada',
-            ],
+
         ];
 
         foreach ($publishers as $data) {
