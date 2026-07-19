@@ -1,3 +1,2 @@
-<div>
-    <!-- You must be the change you wish to see in the world. - Mahatma Gandhi -->
-</div>
+ <script src="{{ asset('admin/assets/js/bootstrap.bundle.min.js') }}"></script>
+ <script src="{{ asset('admin/assets/js/main.js') }}"></script>
