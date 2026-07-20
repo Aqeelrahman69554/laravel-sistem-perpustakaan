@@ -3,6 +3,7 @@
 (function () {
   var sidebarStorageKey = "adminHMD.sidebarMini";
   var themeStorageKey = "adminHMD.colorTheme";
+  var bookDropdownStorageKey = "adminHMD.bookDropdownOpen";
   var desktopMedia = "(min-width: 992px)";
 
   function onReady(callback) {
@@ -164,6 +165,34 @@
     }
 
     initUserProfile();
+
+    function initBookDropdown() {
+      var bookDropdown = document.getElementById("bookDropdown");
+
+      if (!bookDropdown || !window.bootstrap || !window.bootstrap.Collapse) {
+        return;
+      }
+
+      var bookCollapse = window.bootstrap.Collapse.getOrCreateInstance(bookDropdown, { toggle: false });
+
+      if (storageAvailable && window.localStorage.getItem(bookDropdownStorageKey) === "true") {
+        bookCollapse.show();
+      }
+
+      bookDropdown.addEventListener("shown.bs.collapse", function () {
+        if (storageAvailable) {
+          window.localStorage.setItem(bookDropdownStorageKey, "true");
+        }
+      });
+
+      bookDropdown.addEventListener("hidden.bs.collapse", function () {
+        if (storageAvailable) {
+          window.localStorage.setItem(bookDropdownStorageKey, "false");
+        }
+      });
+    }
+
+    initBookDropdown();
 
     if (!sidebarToggle) {
       return;
