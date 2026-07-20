@@ -156,6 +156,14 @@ a {
   transform: translateX(2px);
 }
 
+.dropdown-arrow {
+  transition: transform 0.2s ease;
+}
+
+.sidebar-nav .nav-link[aria-expanded="true"] .dropdown-arrow {
+  transform: rotate(90deg);
+}
+
 .nav-icon {
   width: 30px;
   height: 30px;

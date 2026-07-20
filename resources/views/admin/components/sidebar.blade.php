@@ -26,10 +26,33 @@
             <span class="nav-icon"><i class="bi bi-person-badge" aria-hidden="true"></i></span>
             <span class="nav-text">Profile</span>
         </a>
-        <a class="nav-link" href="charts.html">
-            <span class="nav-icon"><i class="bi bi-bar-chart-line" aria-hidden="true"></i></span>
-            <span class="nav-text">Charts</span>
+
+        @php
+       $isBookActive = Route::is('books.*') || Route::is('categories.*') || Route::is('publishers.*');
+        @endphp
+        <a class="nav-link d-flex align-items-center" href="#bookDropdown" data-bs-toggle="collapse" role="button"
+            aria-expanded="{{ $isBookActive ? 'true' : 'false' }}" aria-controls="bookDropdown">
+            <span class="nav-icon"><i class="bi bi-book" aria-hidden="true"></i></span>
+            <span class="nav-text">Manajemen Buku</span>
+            <i class="bi bi-chevron-right ms-auto dropdown-arrow" aria-hidden="true"></i>
         </a>
+
+        <div class="collapse" id="bookDropdown">
+            <div class="sidebar-submenu ps-4">
+                <a class="nav-link d-flex align-items-center" href="{{ route('admin.categories.table') }}">
+                    <span class="nav-icon"><i class="bi bi-grid" aria-hidden="true"></i></span>
+                    <span class="nav-text">Categories</span>
+                </a>
+                <a class="nav-link d-flex align-items-center" href="{{ route('admin.publishers.table') }}">
+                    <span class="nav-icon"><i class="bi bi-building" aria-hidden="true"></i></span>
+                    <span class="nav-text">Publisher</span>
+                </a>
+                <a class="nav-link d-flex align-items-center" href="{{ route('admin.books.table') }}">
+                    <span class="nav-icon"><i class="bi bi-book" aria-hidden="true"></i></span>
+                    <span class="nav-text">Books</span>
+                </a>
+            </div>
+        </div>
         <a class="nav-link" href="tables.html">
             <span class="nav-icon"><i class="bi bi-table" aria-hidden="true"></i></span>
             <span class="nav-text">Tables</span>
