@@ -17,40 +17,40 @@ class BookSeeder extends Seeder
     {
         $books = [
             [
-                'books_image'     => 'atomic-habits.jpg',
-                'books_isbn'      => '9786020633176',
-                'books_title'     => 'Atomic Habits',
+                'image'     => 'atomic-habits.jpg',
+                'isbn'      => '9786020633176',
+                'title'     => 'Atomic Habits',
                 'category'        => 'Psikologi',
-                'books_author'    => 'James Clear',
-                'books_synopsis'  => 'Panduan membangun kebiasaan baik dan menghilangkan kebiasaan buruk.',
+                'author'    => 'James Clear',
+                'synopsis'  => 'Panduan membangun kebiasaan baik dan menghilangkan kebiasaan buruk.',
                 'publisher'       => 'Gramedia',
-                'books_published' => '2019',
-                'books_stock'     => 15,
-                'books_location'  => 'Rak A1',
+                'year_published' => '2019',
+                'stock'     => 15,
+                'location'  => 'Rak A1',
             ],
             [
-                'books_image'     => 'clean-code.jpg',
-                'books_isbn'      => '9780132350884',
-                'books_title'     => 'Clean Code',
+                'image'     => 'clean-code.jpg',
+                'isbn'      => '9780132350884',
+                'title'     => 'Clean Code',
                 'category'        => 'Teknologi',
-                'books_author'    => 'Robert C. Martin',
-                'books_synopsis'  => 'Prinsip-prinsip menulis kode yang bersih dan mudah dipelihara.',
+                'author'    => 'Robert C. Martin',
+                'synopsis'  => 'Prinsip-prinsip menulis kode yang bersih dan mudah dipelihara.',
                 'publisher'       => 'Prentice Hall',
-                'books_published' => '2008',
-                'books_stock'     => 10,
-                'books_location'  => 'Rak IT-01',
+                'year_published' => '2008',
+                'stock'     => 10,
+                'location'  => 'Rak IT-01',
             ],
             [
-                'books_image'     => 'laskar-pelangi.jpg',
-                'books_isbn'      => '9789793062792',
-                'books_title'     => 'Laskar Pelangi',
+                'image'     => 'laskar-pelangi.jpg',
+                'isbn'      => '9789793062792',
+                'title'     => 'Laskar Pelangi',
                 'category'        => 'Novel',
-                'books_author'    => 'Andrea Hirata',
-                'books_synopsis'  => 'Perjuangan anak-anak Belitung dalam meraih pendidikan.',
+                'author'    => 'Andrea Hirata',
+                'synopsis'  => 'Perjuangan anak-anak Belitung dalam meraih pendidikan.',
                 'publisher'       => 'Bentang Pustaka',
-                'books_published' => '2005',
-                'books_stock'     => 20,
-                'books_location'  => 'Rak N-02',
+                'year_published' => '2005',
+                'stock'     => 20,
+                'location'  => 'Rak N-02',
             ],
         ];
 
@@ -59,18 +59,18 @@ class BookSeeder extends Seeder
             $category = Category::where('categories_name', $book['category'])->first();
 
             $publisher = Publisher::where('publisher_name', $book['publisher'])->first();
-            
+
             Book::create([
-                'books_image'     => $book['books_image'],
-                'books_isbn'      => $book['books_isbn'],
-                'books_title'     => $book['books_title'],
+                'image'     => $book['image'],
+                'isbn'      => $book['isbn'],
+                'title'     => $book['title'],
                 'category_id'     => $category->id,
-                'books_author'    => $book['books_author'],
-                'books_synopsis'  => $book['books_synopsis'],
+                'author'    => $book['author'],
+                'synopsis'  => $book['synopsis'],
                 'publisher_id'    => $publisher->id,
-                'books_published' => $book['books_published'],
-                'books_stock'     => $book['books_stock'],
-                'books_location'  => $book['books_location'],
+                'year_published' => $book['year_published'],
+                'stock'     => $book['stock'],
+                'location'  => $book['location'],
             ]);
         }
     }

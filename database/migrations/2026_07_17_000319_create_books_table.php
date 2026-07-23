@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->string('books_image')->nullable();
-            $table->string('books_isbn', 13)->unique()->nullable();
-            $table->string('books_title');
+            $table->string('image')->nullable();
+            $table->string('isbn', 13)->unique()->nullable();
+            $table->string('title');
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
-            $table->string('books_author')->nullable();
-            $table->longText('books_synopsis');
+            $table->string('author')->nullable();
+            $table->longText('synopsis');
             $table->foreignId('publisher_id')->constrained()->cascadeOnDelete();
-            $table->string('books_published')->nullable();
-            $table->integer('books_stock')->unsigned();
-            $table->string('books_location');
+            $table->string('year_published')->nullable();
+            $table->integer('stock')->unsigned();
+            $table->string('location');
             $table->timestamps();
         });
     }
